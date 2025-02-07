@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpaceX Alien Blaster Game</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+      margin: 0 auto;
+      background-color: #111;
+    }
+    .score-board {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      color: white;
+    }
+    .game-over {
+      position: absolute;
+      top: 250px;
+      left: 200px;
+      font-size: 30px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="score-board">
+    Score: <span id="score">0</span>
+  </div>
+  <div class="game-over" id="gameOver" style="display: none;">Game Over! Press F5 to restart.</div>
+
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const scoreElement = document.getElementById('score');
+    const gameOverElement = document.getElementById('gameOver');
+
+    let score = 0;
+    let spaceshipWidth = 50;
+    let spaceshipHeight = 60;
+    let spaceshipX = canvas.width / 2 - spaceshipWidth / 2;
+    let spaceshipY = canvas.height - spaceshipHeight - 10;
+    let spaceshipSpeed = 5;
+    let isGameOver = false;
+
+    const bullets = [];
+    const enemies = [];
+    const bulletWidth = 5;
+    const bulletHeight = 15;
+    const enemyWidth = 50;
+    const enemyHeight = 50;
+    const enemySpeed = 2;
+
+    document.addEventListener('keydown', moveSpaceship);
+    document.addEventListener('keydown', shootBullet);
+
+    function moveSpaceship(event) {
+      if (event.key === 'ArrowLeft' && spaceshipX > 0) {
+        spaceshipX -= spaceshipSpeed;
+      }
+      if (event.key === 'ArrowRight' && spaceshipX < canvas.width - spaceshipWidth) {
+        spaceshipX += spaceshipSpeed;
+      }
+    }
+
+    function shootBullet(event) {
+      if (event.key === ' ' && !isGameOver) {
+        bullets.push({ x: spaceshipX + spaceshipWidth / 2 - bulletWidth / 2, y: spaceshipY });
+      }
+    }
+
+    function generateEnemies() {
+      if (Math.random() < 0.02 && !isGameOver) {
+        let x = Math.random() * (canvas.width - enemyWidth);
+        enemies.push({ x: x, y: 0 });
+      }
+    }
+
+    function updateBullets() {
+      for (let i = 0; i < bullets.length; i++) {
+        bullets[i].y -= 5;
+
+        // Remove bullet if it goes out of bounds
+        if (bullets[i].y < 0) {
+          bullets.splice(i, 1);
+        }
+
+        // Check for collision with enemies
+        for (let j = 0; j < enemies.length; j++) {
+          if (
+            bullets[i].x < enemies[j].x + enemyWidth &&
+            bullets[i].x + bulletWidth > enemies[j].x &&
+            bullets[i].y < enemies[j].y + enemyHeight &&
+            bullets[i].y + bulletHeight > enemies[j].y
+          ) {
+            enemies.splice(j, 1); // Destroy the enemy
+            bullets.splice(i, 1); // Destroy the bullet
+            score++;
+            scoreElement.textContent = `Score: ${score}`;
+          }
+        }
+      }
+    }
+
+    function updateEnemies() {
+      for (let i = 0; i < enemies.length; i++) {
+        enemies[i].y += enemySpeed;
+
+        if (enemies[i].y > canvas.height) {
+          enemies.splice(i, 1);
+        }
+
+        // Check for collision with spaceship
+        if (
+          spaceshipX < enemies[i].x + enemyWidth &&
+          spaceshipX + spaceshipWidth > enemies[i].x &&
+          spaceshipY < enemies[i].y + enemyHeight &&
+          spaceshipY + spaceshipHeight > enemies[i].y
+        ) {
+          isGameOver = true;
+        }
+      }
+    }
+
+    function drawSpaceship() {
+      ctx.fillStyle = 'yellow';
+      ctx.fillRect(spaceshipX, spaceshipY, spaceshipWidth, spaceshipHeight);
+    }
+
+    function drawBullets() {
+      ctx.fillStyle = 'red';
+      bullets.forEach(bullet => {
+        ctx.fillRect(bullet.x, bullet.y, bulletWidth, bulletHeight);
+      });
+    }
+
+    function drawEnemies() {
+      ctx.fillStyle = 'green';
+      enemies.forEach(enemy => {
+        ctx.fillRect(enemy.x, enemy.y, enemyWidth, enemyHeight);
+      });
+    }
+
+    function gameLoop() {
+      if (isGameOver) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        gameOverElement.style.display = 'block';
+        return;
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      generateEnemies();
+      updateBullets();
+      updateEnemies();
+      drawSpaceship();
+      drawBullets();
+      drawEnemies();
+
+      requestAnimationFrame(gameLoop);
+    }
+
+    gameLoop();
+  </script>
+  
+</body>
+</html>

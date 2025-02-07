@@ -1,0 +1,37 @@
+div{
+   text align:center;
+
+   
+
+   background-color:black;
+   
+   height:100px;
+
+}
+p{
+    color:black;
+
+    text-align: center;
+}
+.as{
+    color:red;
+    text-align: center;
+
+}
+#a{
+    color:green;
+}
+*{
+    color:chartreuse;
+}
+div p{
+    color:currentColor;
+}
+
+ui>li{
+    color:brown;
+}
+input[type="text"]{
+    color:darkblue;
+}
+
