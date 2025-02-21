@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Login</title>
+    <link rel="stylesheet" href="styles.cs">
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-form">
+            <h1>Sign In</h1>
+            <input type="email" placeholder="Email or phone number" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit"><a href="movieswebsite.html">Sign up</a></button>
+            <div class="help-section">
+                <div><input type="checkbox" id="remember"><label for="remember"> Remember me</label></div>
+                <a href="#">Need help?</a>
+            </div>
+            <p>New to Netflix? <a href="#">Sign up now</a>.</p>
+        </form>
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+    }
+    .login-container {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 40px;
+        border-radius: 5px;
+        color: white;
+        width: 300px;
+    }
+    .login-form {
+        display: flex;
+        flex-direction: column;
+    }
+    h1 {
+        text-align: center;
+    }
+    input {
+        background: #333;
+        border: none;
+        padding: 10px;
+        margin: 10px 0;
+        color: white;
+    }
+    button {
+        background: #e50914;
+        border: none;
+        padding: 10px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .help-section {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+    }
+    a {
+        color: #b3b3b3;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            margin: 20px auto;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .seats {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .seat {
+            width: 40px;
+            height: 40px;
+            background: gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .seat.selected {
+            background: green;
+            color: white;
+        }
+        .total {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:disabled {
+            background: gray;
+        }
+        .ticket {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background: white;
+            border: 2px dashed black;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select Your Seats</h2>
+        <div class="seats" id="seats"></div>
+        <p class="total">Total: $<span id="total">0</span></p>
+        <button id="bookBtn" disabled>Book Now</button>
+        <div class="ticket" id="ticket"></div>
+    </div>
+    <script>
+        const seatContainer = document.getElementById('seats');
+        const totalPriceEl = document.getElementById('total');
+        const bookBtn = document.getElementById('bookBtn');
+        const ticketEl = document.getElementById('ticket');
+        const seatPrice = 10;
+        const seats = [];
+
+        for (let i = 1; i <= 30; i++) {
+            const seat = document.createElement('div');
+            seat.classList.add('seat');
+            seat.textContent = i;
+            seat.dataset.price = seatPrice;
+            seat.addEventListener('click', () => toggleSeat(seat));
+            seats.push(seat);
+            seatContainer.appendChild(seat);
+        }
+
+        function toggleSeat(seat) {
+            seat.classList.toggle('selected');
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            const total = Array.from(selectedSeats).reduce((sum, seat) => sum + seatPrice, 0);
+            totalPriceEl.textContent = total;
+            bookBtn.disabled = selectedSeats.length === 0;
+        }
+
+        bookBtn.addEventListener('click', () => {
+            const selectedSeats = Array.from(document.querySelectorAll('.seat.selected')).map(seat => seat.textContent).join(', ');
+            ticketEl.textContent = `Your ticket: Seats ${selectedSeats} | Total: $${totalPriceEl.textContent}`;
+            ticketEl.style.display = 'block';
+        });
+    </script>
+</body>
+</html>

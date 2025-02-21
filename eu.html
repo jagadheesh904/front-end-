@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuralink Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .status {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .status span {
+            font-weight: bold;
+        }
+        .control-buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+        .control-buttons button {
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .control-buttons button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="heading">
+            <h1>Neuralink Brain-Computer Interface</h1>
+            <p>Control your devices with your thoughts!</p>
+        </div>
+
+        <!-- Status Section -->
+        <div class="status">
+            <span>Connection Status:</span> <span id="status">Connected</span>
+        </div>
+
+        <!-- Control Section -->
+        <div class="control-buttons">
+            <button id="action1">Activate Thought-Control</button>
+            <button id="action2">Deactivate Thought-Control</button>
+        </div>
+    </div>
+
+    <script>
+        // Hypothetical Script to simulate the UI
+        document.getElementById("action1").addEventListener("click", function() {
+            document.getElementById("status").textContent = "Activating Thought-Control...";
+        });
+
+        document.getElementById("action2").addEventListener("click", function() {
+            document.getElementById("status").textContent = "Deactivating Thought-Control...";
+        });
+    </script>
+
+</body>
+</html>
