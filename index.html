@@ -1,28 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>www.jagadheesh.com</title>
-    
-</head>
-<link rel="stylesheet" href="styles.css"/>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Block and Inline Elements Example</title>
-</head>
-<body>
- <h1><marquee>hello jaggu naidu ne pani ipoyindhi kutha cheskestharu</marquee></h1>
-    
-   <P>dgfdsj</P>
-   <div style="background-color: red;">dbcsdc</div>
+<html>
 
-</body>
-</html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet"  href="style.css"/>
+    <title>MOVIES APP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</head>
 
+<body>
+    <!-- HEADER -->
+    <div class="wrapper">
+        <header>
+            <div class="netflixLogo">
+                <a id="logo" href="#home"><img src="https://res.cloudinary.com/do4qwwms8/image/upload/v1635419613/website-logo_qwpc3c.png" alt="Logo Image" /></a>
+            </div>
+            <nav class="main-nav">
+                <a href="#home">Home</a>
+                <a href="#tvShows">TV Shows</a>
+                <a href="#movies">Movies</a>
+                <a href="#originals">Originals</a>
+                <a href="#">Recently Added</a>
+            </nav>
+            <nav class="sub-nav">
+                <a href="#"><i class="fas fa-search sub-nav-logo"></i></a>
+                <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
+                <a href="#">Account</a>
+            </nav>
+        </header>
+    </div>
+    <!-- END OF HEADER -->
+    <!-- DISPLAY -->
+    <div class="home-container" style="background-image: url('https://i.postimg.cc/hts7SXtR/Whats-App-Image-2024-01-07-at-12-15-07-AM.jpg'); background-size: cover; height: 52vh; background-repeat: no-repeat;">
+        <div class="home-movie-details-container">
+            <h1 class="home-movie-heading h12">story teller</h1>
+            <p class="home-movie-description">story teller is a horror film which stares hero jagadheesh and samyuktha menon</p>
+            <button type="button" class="home-movie-play-button">
+                Play
+            </button>
+        </div>
+    </div>
+
+    <!-- END OF DISPLAY -->
+    <!-- MAIN CONTAINER -->
+    <section class="main-container">
+        <div class="location" id="home">
+            <h1 id="home">Popular on Movies App</h1>
+            <div class="box">
+
+                <a href=""><img src="https://i.postimg.cc/hts7SXtR/Whats-App-Image-2024-01-07-at-12-15-07-AM.jpg" alt="" /></a>
+                <a href="book.html">book the seat</a>
+                <a href=""><img src="https://i.postimg.cc/KzNWfrZs/Whats-App-Image-2024-01-06-at-11-43-49-PM.jpg" alt="" /></a>
+
+                <a href=""><img src="https://i.postimg.cc/Y9W6qtPN/Whats-App-Image-2024-01-06-at-11-44-33-PM.jpg" alt="" /></a>
+                <a href=""><img src="https://i.postimg.cc/VkzPq6B6/Whats-App-Image-2024-01-06-at-11-43-49-PM-1.jpg" alt="" /></a>
+                <a href=""><img src="https://i.postimg.cc/C1kcrCwV/Whats-App-Image-2024-01-07-at-12-25-27-AM.jpg" alt="" /></a>
+                <a href=""><img src="https://i.postimg.cc/fTTvYQSs/Whats-App-Image-2024-01-06-at-11-44-33-PM-1.jpg" alt="" /></a>
+                <a href=""><img src="https://i.postimg.cc/02DqJ9wS/Whats-App-Image-2023-06-04-at-9-49-48-PM-1.jpg" alt="" /></a>
+
+                <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/venom-let-there-be-carnage-movie-poster.png" alt="" /></a>
+                <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/eternals-movie-poster.png" alt="" /></a>
+
+                <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/army-of-thieves-movie-poster.png" alt="" /></a>
+                <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/the-harder-they-fall-movie-poster.png" alt="" /></a>
+                <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/halloween-kills-movie-poster.png" alt="" /></a>
+                <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/twilight-movie-poster.png" alt="" /></a>
+                <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/squid-game-south-korean-movie-poster.png" alt="" /></a>
+                <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/the-pursuit-of-happyness-movie-poster.png" alt="" /></a>
+            </div>
+        </div>
+
+        <h1 id="myList">Trending Now</h1>
+        <div class="box">
+            
+            <a href="book.html">book the seat</a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/grindhouse-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/clifford-the-big-red-dog-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/titanic-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/avatar-theatrical-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/a-few-good-men-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/king-richard-movie-poster.png" alt="" /></a>
+        </div>
+
+        <h1 id="tvShows">TV Shows</h1>
+        <div class="box">
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/dexter-new-blood-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/riverdale-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/the-boss-baby-family-business-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/the-protege-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/godzilla-vs-kong-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/demonic-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/cosmic-sin-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/infinite-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/zack-snyders-justice-league-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/the-tomorrow-war-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/the-vault-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/mortal-kombat-international-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/spider-man-advance-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/gunpowder-milkshake-british-movie-poster.png" alt="" /></a>
+        </div>
+
+        <h1 id="originals">Originals</h1>
+        <div class="box">
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/spider-man-far-from-home-international-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/venom-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/snake-eyes-gi-joe-origins-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/the-addams-family-2-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/luca-movie-poster.png" alt="" /></a>
+            <a href=""><img src="https://assets.ccbp.in/frontend/react-js/movies-app/the-amazing-spider-man-movie-poster.png" alt="" /></a>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer>
+        <div class="logos">
+            <a href="#"><i class="fab fa-facebook-square fa-2x logo"></i></a>
+            <a href="#"><i class="fab fa-instagram fa-2x logo"></i></a>
+            <a href="#"><i class="fab fa-twitter fa-2x logo"></i></a>
+            <a href="#"><i class="fab fa-youtube fa-2x logo"></i></a>
+        </div>
+        <p>Contact US</p>
+        <p>Help center</p>
+    </footer>
 </body>
+
 </html>
